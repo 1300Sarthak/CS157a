@@ -1,0 +1,167 @@
+Group Members: Sarthak, Sumit, Sebasitan, Justin
+
+Session 1: Brainstorming - Domain Selection and Schema Design
+
+Prompt 1:
+
+"I need some ideas for CRUD style CLI projects for my database class. What are some good domains I could work with and what kind of operations would make sense for each?"
+
+AI Response:
+
+Here are some CRUD-friendly CLI project ideas:
+
+Library Management System - manage books, members, borrowing/returning, fines
+Student Information System - handle student records, courses, grades, enrollment
+Inventory Management - track products, suppliers, orders, stock levels
+Hospital Management - patients, doctors, appointments, medical records
+Restaurant Ordering System - menu items, customers, orders, staff scheduling
+
+Prompt 2:
+
+"What if I go with a school system where student ID is the primary key? Can you help me figure out what tables I'd need and what columns should go in each table?"
+
+AI Response:
+
+For a school system, here's a basic structure:
+
+Students table: student_id (PK), first_name, last_name, email, phone, address, enrollment_date
+Courses table: course_id (PK), course_name, course_code, credits, department, description
+Instructors table: instructor_id (PK), first_name, last_name, email, department, hire_date
+Enrollments table: enrollment_id (PK), student_id (FK), course_id (FK), semester, year, grade
+Departments table: dept_id (PK), dept_name, dept_head, building, budget
+
+Prompt 3:
+
+"How can I expand this school system idea to meet the requirement of having at least 5 base tables for a real domain?"
+
+AI Response:
+
+You can expand your school system with these additional tables:
+
+Assignments table: assignment_id, course_id (FK), title, description, due_date, max_points
+Grades table: grade_id, student_id (FK), assignment_id (FK), points_earned, submission_date
+Classrooms table: room_id, building, room_number, capacity, equipment
+Course_Schedule table: schedule_id, course_id (FK), room_id (FK), instructor_id (FK), time_slot, days
+Prerequisites table: prereq_id, course_id (FK), required_course_id (FK)
+
+Prompt 4:
+
+"Can you clean up these tables and remove any redundant columns? I want to keep only the most important and relevant ones for my project."
+
+AI Response:
+
+Here's a streamlined version focusing on core functionality:
+
+Students: student_id (PK), first_name, last_name, email, major
+Courses: course_id (PK), course_name, course_code, credits, department
+Instructors: instructor_id (PK), first_name, last_name, email, department
+Enrollments: student_id (FK), course_id (FK), semester, year, grade
+Assignments: assignment_id (PK), course_id (FK), title, due_date, max_points
+
+Session 2: Schema Refinement and Constraint Definition
+
+After the initial brainstorming, we realized we needed to add more structure and constraints to make our schema production-ready. We also discovered we needed a 5th table to meet project requirements.
+
+Prompt 5:
+
+"We need to add a Classroom table to our schema and define proper constraints for all our tables. Can you help us figure out what constraints make sense for each column?"
+
+AI Response:
+
+For the Classroom table, you'll want:
+- classroom_id (PK): Primary key identifier
+- building: Building name/code where classroom is located
+- room_number: Specific room identifier within building
+- capacity: Maximum number of students the room can hold
+
+For constraints across all tables, consider:
+- NOT NULL constraints for essential fields
+- UNIQUE constraints for email addresses and course codes
+- CHECK constraints for credits > 0 and capacity > 0
+- Foreign key constraints to maintain referential integrity
+
+Session 3: Final Schema Design
+
+Through iterative refinement, we arrived at our final 5-table schema:
+
+Final Tables:
+
+1. Student
+   - student_id (INT, PK)
+   - first_name (VARCHAR(50), NOT NULL)
+   - last_name (VARCHAR(50), NOT NULL)
+   - dob (DATE)
+   - email (VARCHAR(100), UNIQUE, NOT NULL)
+
+2. Instructor
+   - instructor_id (INT, PK)
+   - first_name (VARCHAR(50), NOT NULL)
+   - last_name (VARCHAR(50), NOT NULL)
+   - email (VARCHAR(100), UNIQUE, NOT NULL)
+   - department (VARCHAR(100))
+
+3. Course
+   - course_id (INT, PK)
+   - course_name (VARCHAR(100), NOT NULL)
+   - course_code (VARCHAR(20), UNIQUE, NOT NULL)
+   - credits (INT, CHECK(credits > 0))
+   - instructor_id (INT, FK → Instructor(instructor_id), NOT NULL)
+   - classroom_id (INT, FK → Classroom(classroom_id), NOT NULL)
+
+4. Enrollments
+   - student_id (INT, FK → Student(student_id))
+   - course_id (INT, FK → Course(course_id))
+   - semester (VARCHAR(20), NOT NULL)
+   - grade (CHAR(2), NULL allowed if course is in progress)
+   - Composite Primary Key: (student_id, course_id, semester)
+
+5. Classroom
+   - classroom_id (INT, PK)
+   - building (VARCHAR(50), NOT NULL)
+   - room_number (VARCHAR(10), NOT NULL)
+   - capacity (INT, NOT NULL, CHECK(capacity > 0))
+
+What we adopted/changed/rejected:
+
+Adopted:
+
+- School management system as our core domain - it's familiar and has clear CRUD operations
+- Basic structure with Students, Courses, Instructors, and Enrollments as foundation tables
+- Added Classroom table to reach the 5-table minimum requirement and create realistic course scheduling
+- Comprehensive constraint system to ensure data integrity
+- Composite primary key for Enrollments to allow multiple semester enrollments
+
+Changed:
+
+- Added date of birth (dob) to Student table for more realistic student records
+- Moved from Assignments table to Classroom table for better real-world modeling
+- Implemented detailed constraint specifications with proper data types and sizes
+- Made Enrollments use composite key (student_id, course_id, semester) instead of surrogate key
+- Added foreign key relationships from Course to both Instructor and Classroom
+
+Rejected:
+
+- Assignments table - decided Classroom was more fundamental to course management
+- Overly complex scheduling with time slots - kept simple classroom assignment
+- Department budget tracking - not relevant to our core student management focus
+- Separate Grades table - incorporated grades directly into Enrollments with NULL allowed for in-progress courses
+
+Evolution from AI Suggestions to Final Design:
+
+The AI initially provided generic textbook structures, but through iterative prompting we evolved to a more practical design:
+
+1. Started with basic 4-table structure (Student, Course, Instructor, Enrollments)
+2. Added constraints and proper data types for production readiness
+3. Introduced Classroom table to meet 5-table requirement and add realistic scheduling
+4. Refined relationships to ensure proper foreign key constraints
+5. Implemented composite primary key for Enrollments to handle multiple semester enrollments
+6. Added CHECK constraints for business logic (credits > 0, capacity > 0)
+7. Ensured UNIQUE constraints on email addresses and course codes for data integrity
+
+Key Improvements Made:
+
+- Moved from conceptual to implementable schema with specific data types
+- Added comprehensive constraint system for data validation
+- Created realistic many-to-many relationship handling through Enrollments
+- Established proper foreign key relationships for referential integrity
+- Designed for practical CRUD operations in a CLI environment
