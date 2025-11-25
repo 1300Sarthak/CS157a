@@ -1,0 +1,140 @@
+# CS157A Final Project - Team Roles and Contributions
+
+## Team Members
+
+1. Sarthak Sethi
+2. Sebastian Roumain-Zala
+3. Sumit Shrestha
+4. Justin Saminathen
+
+---
+
+## Individual Contributions
+
+### Sarthak Sethi
+
+**Role**: Java Developer & Video Production Lead
+
+**Contributions**:
+- Implemented Main.java console application with JDBC connection and menu system
+- Developed all CRUD operations (SELECT, INSERT, UPDATE, DELETE) using PreparedStatements
+- Implemented transactional workflow with COMMIT and ROLLBACK functionality
+- Added input validation and error handling throughout the application
+- Created and edited video demonstration (≤6 minutes) showing all features
+- Integrated app.properties configuration file for database connection
+- Tested Java application end-to-end and fixed bugs
+
+**Reflection**:
+Working on the Java console application was challenging but rewarding. I learned a lot about JDBC and how to properly use PreparedStatements to prevent SQL injection. The transactional workflow was tricky at first, especially understanding when to commit vs rollback, but after testing it multiple times I got the hang of it. The video editing took longer than expected but I'm happy with how it turned out. Team communication was good - everyone responded quickly when I had questions about the database schema.
+
+---
+
+### Sebastian Roumain-Zala
+
+**Role**: Database Design Lead & SQL Developer
+
+**Contributions**:
+- Designed E/R diagram for School Management System domain (Phase A, Part 1)
+- Created initial database schema with 5+ tables and relationships
+- Wrote create_and_populate.sql script with all CREATE TABLE statements
+- Implemented indexes (idx_enroll_student_sem, idx_enroll_course_sem) with explanations
+- Created student_transcript_view for convenient transcript reporting (Part 6)
+- Developed stored procedure sp_enroll_student_in_course with business rule validation
+- Added CHECK constraint chk_semester_format for data integrity
+- Populated database with sample data for testing
+
+**Reflection**:
+I enjoyed working on the database design side of the project. Creating the E/R diagram helped me understand the relationships between entities better. Writing the SQL scripts was straightforward once I understood the schema, but debugging the stored procedure took some time. Working with triggers and constraints taught me a lot about data integrity. The team was supportive when I needed help understanding some of the Java integration requirements.
+
+---
+
+### Sumit Shrestha
+
+**Role**: Schema Translation Lead & Query Developer
+
+**Contributions**:
+- Translated E/R diagram to relational schema with PKs, FKs, and constraints (Phase A, Part 2)
+- Wrote normalization notes explaining 3NF compliance
+- Developed query suite demonstrating joins (2-table and 3-table), subqueries, and aggregates
+- Created UPDATE queries with WHERE clauses for testing
+- Implemented trigger trg_enrollment_capacity to prevent over-enrollment
+- Performed EXPLAIN analysis on queries before/after index creation
+- Tested all SQL queries and verified they run correctly
+- Reviewed and tested Java application for bugs
+
+**Reflection**:
+Translating the E/R diagram to a relational schema was interesting - I had to think carefully about foreign keys and how to maintain referential integrity. Writing the query suite helped me understand different types of joins and when to use subqueries vs joins. The trigger implementation was new to me, so I spent extra time learning how triggers work in MySQL. Testing was time-consuming but important - we caught several bugs that way. Good collaboration with Sebastian on the database side and Sarthak on testing the Java app.
+
+---
+
+### Justin Saminathen
+
+**Role**: Domain Lead & Documentation Lead
+
+**Contributions**:
+- Selected School Management System as project domain and defined business rules
+- Created comprehensive README.md with build/run instructions and requirements mapping
+- Wrote ai_log.md documenting all AI collaboration sessions
+- Added CHECK constraints for grade validation and credits range
+- Created Team-roles.txt template and coordinated team contributions
+- Tested database constraints and verified error handling
+- Reviewed all documentation for completeness and clarity
+- Coordinated team meetings and tracked project progress
+
+**Reflection**:
+Choosing the domain was important - we wanted something realistic that we could all understand. Documentation took more time than I expected, but it's crucial for reproducibility. I learned a lot about MySQL constraints and how they enforce data integrity. The team worked well together - we had regular check-ins and everyone stayed on track. The most challenging part was coordinating everyone's schedules for meetings, but we made it work. I'm proud of how comprehensive our documentation turned out.
+
+---
+
+## Team Reflection
+
+### What Went Well
+- Clear division of responsibilities - each person had distinct areas to focus on
+- Good communication through group chat and regular meetings
+- Everyone completed their assigned tasks on time
+- Effective code review process - caught bugs before submission
+- Strong collaboration between database and Java development teams
+
+### Challenges Faced
+- Coordinating schedules for team meetings was difficult
+- Understanding transactional workflow took multiple iterations
+- Debugging SQL stored procedures required extra research
+- Video recording and editing took longer than anticipated
+- Some merge conflicts in shared files that needed resolution
+
+### Lessons Learned
+- Starting early and breaking work into smaller tasks helps avoid last-minute stress
+- Testing incrementally saves time compared to testing everything at the end
+- Clear documentation makes it easier for teammates to understand each other's work
+- Version control (Git) is essential for collaborative coding projects
+- Asking for help early prevents bigger problems later
+
+### Overall Teamwork Assessment
+Our team worked well together throughout the semester. We divided work based on each person's strengths - Sebastian focused on database design, Sumit on queries and schema, Sarthak on Java development, and Justin on documentation. We had regular check-ins to ensure everyone was on track and helped each other when someone got stuck. The most successful aspect was our communication - we responded quickly to questions and shared progress updates regularly. While we faced some challenges with scheduling and debugging, we worked through them collaboratively. Overall, this project taught us valuable lessons about teamwork, time management, and technical skills that will be useful in future projects.
+
+---
+
+## Phase Breakdown
+
+### Phase A (Parts 1 & 2)
+- **Primary Contributors**: Sebastian Roumain-Zala (E/R diagram), Sumit Shrestha (Schema translation), Justin Saminathen (Domain selection)
+- **Key Deliverables**: E/R diagram PDF, Schema mapping PDF, AI documentation
+
+### Phase B (Parts 3 & 4)
+- **Primary Contributors**: Sebastian Roumain-Zala (SQL scripts, indexes), Sumit Shrestha (Query suite, trigger)
+- **Key Deliverables**: create_and_populate.sql, Query examples, Trigger implementation
+
+### Phase C (Parts 5, 6, 7)
+- **Primary Contributors**: Sarthak Sethi (Java application, video), Sebastian Roumain-Zala (Views, stored procedures), Justin Saminathen (Documentation, constraints)
+- **Key Deliverables**: Main.java, Views/stored routines, README.md, ai_log.md, video_demo.mp4
+
+---
+
+## Notes
+
+- All team members contributed to code review and testing
+- Regular team meetings were held weekly to coordinate work
+- Version control (Git) was used to manage code changes
+- Work was divided evenly with each person taking primary responsibility for specific phases
+- Sarthak handled all video recording and editing for the final demonstration
+- All team members tested the final application before submission
