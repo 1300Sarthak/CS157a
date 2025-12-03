@@ -125,7 +125,7 @@ Our team worked well together throughout the semester. We divided work based on 
 - **Key Deliverables**: create_and_populate.sql, Query examples, Trigger implementation
 
 ### Phase C (Parts 5, 6, 7)
-- **Primary Contributors**: Sarthak Sethi (Java application, video), Justin Saminathen (Documentation, constraints)
+- **Primary Contributors**: Sarthak Sethi (Java application, video), Sumit Shrestha (SQL scripts), Justin Saminathen (Documentation, constraints)
 - **Key Deliverables**: Main.java, Views/stored routines, README.md, ai_log.md, video_demo.mp4
 
 ---
