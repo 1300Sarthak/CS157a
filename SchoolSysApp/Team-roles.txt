@@ -34,8 +34,6 @@ Working on the Java console application was challenging but rewarding. I learned
 **Role**: Database Design Lead & SQL Developer
 
 **Contributions**:
-- Designed E/R diagram for School Management System domain (Phase A, Part 1)
-- Created initial database schema with 5+ tables and relationships
 - Wrote create_and_populate.sql script with all CREATE TABLE statements
 - Implemented indexes (idx_enroll_student_sem, idx_enroll_course_sem) with explanations
 - Created student_transcript_view for convenient transcript reporting (Part 6)
@@ -44,7 +42,7 @@ Working on the Java console application was challenging but rewarding. I learned
 - Populated database with sample data for testing
 
 **Reflection**:
-I enjoyed working on the database design side of the project. Creating the E/R diagram helped me understand the relationships between entities better. Writing the SQL scripts was straightforward once I understood the schema, but debugging the stored procedure took some time. Working with triggers and constraints taught me a lot about data integrity. The team was supportive when I needed help understanding some of the Java integration requirements.
+I enjoyed working on the database design side of the project. Writing the SQL scripts was straightforward once I understood the schema, but debugging the stored procedure took some time. Working with triggers and constraints taught me a lot about data integrity. The team was supportive when I needed help understanding some of the Java integration requirements.
 
 ---
 
@@ -53,6 +51,8 @@ I enjoyed working on the database design side of the project. Creating the E/R d
 **Role**: Schema Translation Lead & Query Developer
 
 **Contributions**:
+- Designed E/R diagram for School Management System domain (Phase A, Part 1)
+- Created initial database schema with 5+ tables and relationships
 - Translated E/R diagram to relational schema with PKs, FKs, and constraints (Phase A, Part 2)
 - Wrote normalization notes explaining 3NF compliance
 - Developed query suite demonstrating joins (2-table and 3-table), subqueries, and aggregates
@@ -125,7 +125,7 @@ Our team worked well together throughout the semester. We divided work based on 
 - **Key Deliverables**: create_and_populate.sql, Query examples, Trigger implementation
 
 ### Phase C (Parts 5, 6, 7)
-- **Primary Contributors**: Sarthak Sethi (Java application, video), Sebastian Roumain-Zala (Views, stored procedures), Justin Saminathen (Documentation, constraints)
+- **Primary Contributors**: Sarthak Sethi (Java application, video), Justin Saminathen (Documentation, constraints)
 - **Key Deliverables**: Main.java, Views/stored routines, README.md, ai_log.md, video_demo.mp4
 
 ---
